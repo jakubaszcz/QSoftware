@@ -1,0 +1,21 @@
+# Build outputs
+bin/
+obj/
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+.clion/
+
+# User-specific
+*.user
+*.suo
+
+# NuGet
+*.nuget.g.props
+*.nuget.g.targets
+project.assets.json
+project.nuget.cache
+
+# Logs
+*.log
