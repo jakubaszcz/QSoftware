@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QSoftware.Host", "QSoftware.Host\QSoftware.Host.csproj", "{E3AD38A4-C7D5-4154-8958-BDCD86161891}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QSoftware", "QSoftware\QSoftware.csproj", "{4D9DE9A0-770D-4D85-8FEB-A75215D895AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3AD38A4-C7D5-4154-8958-BDCD86161891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3AD38A4-C7D5-4154-8958-BDCD86161891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3AD38A4-C7D5-4154-8958-BDCD86161891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3AD38A4-C7D5-4154-8958-BDCD86161891}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D9DE9A0-770D-4D85-8FEB-A75215D895AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D9DE9A0-770D-4D85-8FEB-A75215D895AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D9DE9A0-770D-4D85-8FEB-A75215D895AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D9DE9A0-770D-4D85-8FEB-A75215D895AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

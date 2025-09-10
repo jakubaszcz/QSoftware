@@ -2,10 +2,15 @@
 bin/
 obj/
 
-# Visual Studio / VS Code
+# Visual Studio / VS Code / CLion
 .vs/
 .vscode/
 .clion/
+
+# Rider / IntelliJ
+.idea/
+*.sln.iml
+*.DotSettings.user
 
 # User-specific
 *.user
