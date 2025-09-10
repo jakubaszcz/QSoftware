@@ -14,7 +14,7 @@ class Program
         string[] cities = { "London", "Paris", "Berlin", "Madrid", "Kyiv", "Rome" };
 
         // Symmetric 6×6 distance matrix in kilometers (approximate, for testing)
-        double[,] distancesKm = {
+        double[,] distances = {
             // London, Paris, Berlin, Madrid, Kyiv, Rome
             {    0,  344,  930, 1260, 2130, 1435 }, // London
             {  344,    0, 1050, 1050, 2020, 1100 }, // Paris
@@ -22,5 +22,27 @@ class Program
             { 1260, 1050, 1860,    0, 2860, 1360 }, // Madrid
             { 2130, 2020, 1200, 2860,    0, 1700 }, // Kyiv
             { 1435, 1100, 1180, 1360, 1700,    0 }  // Rome
-        }
+        };
+
+        // Create random
+        Random random = new Random();
+        int citiesSize = cities.Length;
+        int randomValue = random.Next(1, citiesSize);
+
+        Console.WriteLine($"The city will be: {cities[randomValue]}");
+
+        // Create arrays for Q#
+        var matrices =
+            new QArray<QArray<double>>(
+                Enumerable.Range(0, distances.GetLength(0))
+                    .Select(i =>
+                        new QArray<double>(
+                            Enumerable.Range(0, distances.GetLength(1))
+                                .Select(j => distances[i, j])
+                        )
+                    )
+                );
+
+    await QSoftware.UseMatrix.Run(sim, matrices);
+}
 }
