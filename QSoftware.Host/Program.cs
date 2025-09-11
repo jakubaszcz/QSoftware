@@ -35,11 +35,12 @@ class Program
                         )
                     )
                 );
+    var qCities = new QArray<string>(cities);
 
-    var order = await QSoftware.UseMatrix.Run(sim, matrices);
+    var order = await QSoftware.UseMatrix.Run(sim, matrices, qCities);
 
     string[] oCities = order.ToArray();
 
-    for (int i = 0; i < oCities.Length; i++) Console.WriteLine($"la : {oCities[i]}");
+    for (int i = 0; i < oCities.Length; i++) Console.WriteLine($"{oCities[i]}");
 }
 }

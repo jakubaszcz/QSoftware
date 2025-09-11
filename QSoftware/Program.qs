@@ -2,23 +2,27 @@ namespace QSoftware {
     open Microsoft.Quantum.Canon;
     open Microsoft.Quantum.Intrinsic;
     open Microsoft.Quantum.Arrays;
+    open Microsoft.Quantum.Math;
 
-    operation UseMatrix(matrix : Double[][]) : String[] {
-        mutable cities = new String[Length(matrix)];
-        mutable index = 0;
-        mutable distance = 0.0;
+    operation UseMatrix(matrix : Double[][], cities : String[]) : String[] {
+        mutable nCities = new String[Length(matrix)]; // New Cities
+        mutable isVisited = new Bool[Length(matrix)]; // Check Visited
+        mutable cIndex = 0; // Current Index
+        mutable distance = 1.0e300; // Best Distance
 
-        for i in 0..Length(matrix)-1 {
-            for j in 0..Length(matrix[i])-1 {
-                if (i == j) {
-                } elif (matrix[i][j] < distance or distance == 0.0) {
-                    set distance = matrix[i][j];
-                    set index = j;
+        for iCity in 0..Length(matrix)-1 { // Loop Through All Matrix Rows
+            for jCity in 0..Length(matrix[iCity])-1 { // Loop Through Values of Matrix
+                if (jCity != cIndex and not isVisited[jCity]) { // Avoid Self Loop
+                    if (distance > matrix[cIndex][jCity]) { // Update Path
+                        set distance = matrix[iCity][jCity]; // Store Shortest Path
+                        set cIndex = jCity; // Set New Index
+                    }
                 }
             }
-            set cities w/= index <- $"{distance}";
+            set isVisited w/= cIndex <- true; // Mark as Visited
+            set nCities w/= iCity <- $"{cities[cIndex]}"; // Store City Name
+            set distance = 1.0e300; // Reset Distance
         }
-
-        return cities;
+        return nCities; // Return List of Nearest Cities
     }
 }
