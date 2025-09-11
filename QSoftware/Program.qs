@@ -1,30 +1,24 @@
-﻿namespace QSoftware {
-
+namespace QSoftware {
     open Microsoft.Quantum.Canon;
     open Microsoft.Quantum.Intrinsic;
+    open Microsoft.Quantum.Arrays;
 
-    function RToInt(r : Result) : Int {
-        if (r == One) { return 1; } else { return 0; }
-    }
+    operation UseMatrix(matrix : Double[][]) : String[] {
+        mutable cities = new String[Length(matrix)];
+        mutable index = 0;
+        mutable distance = 0.0;
 
-    @EntryPoint()
-    operation HelloQ() : Unit {
+        for i in 0..Length(matrix)-1 {
+            for j in 0..Length(matrix[i])-1 {
+                if (i == j) {
+                } elif (matrix[i][j] < distance or distance == 0.0) {
+                    set distance = matrix[i][j];
+                    set index = j;
+                }
+            }
+            set cities w/= index <- $"{distance}";
+        }
 
-        mutable sum = 0;
-
-        // Boucle tant que la somme n'est pas 10
-        repeat {
-            use a = Qubit();
-
-            H(a);                   // met en superposition
-            let resultA = M(a);     // mesure
-            let ai = RToInt(resultA);
-
-            set sum += ai;
-
-            Message($"Mesuré: {ai}, somme actuelle: {sum}, reste: {10 - sum}");
-        } until (sum == 10);
-
-        Message("Finish!");
+        return cities;
     }
 }
